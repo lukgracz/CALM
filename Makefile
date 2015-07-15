@@ -102,7 +102,7 @@ package: $(F_INCLUDE) $(F_SOURCE) $(F_MACRO) $(F_FOMODEL) $(F_SHARE) $(F_DOXYGEN
 	echo "Package '$(F_PACK)' created."
 
 clean:
-	rm -f $(DIR_OBJ)*.o
+	rm -rf $(DIR_OBJ)
 	rm -f $(DIR_OBJ)$(BIN_EVENTS) $(DIR_MAIN)$(BIN_EVENTS)
 	echo "*.o and binary files removed."
 

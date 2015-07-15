@@ -3,11 +3,6 @@
 Genbod::Genbod(): mRandom(0), mNames(0), mNmean(0)
 {
   mRandom = new TRandom2(0);
-  // #ifdef _ROOT_4_
-  // 	mRandom->SetSeed2(41321, 8457);
-  // #else
-  // 	mRandom->SetSeed(41321);
-  // #endif
   mNpart = 4; //particle types (pions, kaons, protons, lambdas)
   //double Nmean[] = {8.94, 1.1, 0.648, 0.19};
   double Nmean[] = {1.493, 0.183, 0.083, 0.048}; //charged particle yields per rapidity unit from 900 GeV data from http://arxiv.org/pdf/1504.00024v1.pdf (ALICE), lambdas from http://arxiv.org/pdf/1012.3257v2.pdf (ALICE)

@@ -100,7 +100,7 @@ class EventGenerator {
  * In case the event directory already has some <b>eventXXX.root</b> EventGenerator save new files with the name counter 
  * set to continue the number sequence.<br />
  * 
- * EventGenerator also create a log entry to a <c>THERMINATOR 2</c> log file [default: <em>therminator.log</em>]. The log entry 
+ * EventGenerator also create a log entry to a <c>CALM</c> log file [default: <em>calm.log</em>]. The log entry 
  * consists of:
  * <ul>
  *   <li> current time and date,

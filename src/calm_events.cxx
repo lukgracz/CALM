@@ -215,9 +215,9 @@ void AddLogEntry(const char* aEntry)
   
   tFile.open(tLogName, std::ios_base::app);
   if (static_cast<long>(tFile.tellp()) == 0) {
-    tFile << "# THERMINATOR 2 Log File"<<std::endl;
+    tFile << "# CALM Log File"<<std::endl;
   }
-  tFile << '['<<tDate.AsSQLString()<<"]\ttherm2_events\t"<<sParentPID<<'\t';
+  tFile << '['<<tDate.AsSQLString()<<"]\tcalm_events\t"<<sParentPID<<'\t';
   tFile << aEntry << std::endl;
   tFile.close();
 }

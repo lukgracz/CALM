@@ -47,7 +47,7 @@ extern int	sParentPID;
 using namespace std;
 
 EventGenerator::EventGenerator()
-: mDB(0), mGenbod(0), mEvent(0), mParticleTree(0), mFile(0),
+: mDB(0), mCALM(0), mEvent(0), mParticleTree(0), mFile(0),
   mFileCounter(0), mEventCounter(0), mNumberOfEvents(0), mEventExportType(0),
   kEventsPerFile(_EVENTS_PER_FILE_)
 {
@@ -59,11 +59,11 @@ EventGenerator::EventGenerator(ParticleDB* aDB)
   kEventsPerFile(_EVENTS_PER_FILE_)
 {
   ReadParameters();
-  mGenbod = new Genbod();
-  //mGenbod->SetMultiplicities(mDB);
-  mEvent = new Event(mDB, mGenbod);
+  mCALM = new CALM();
+  //mCALM->SetMultiplicities(mDB);
+  mEvent = new Event(mDB, mCALM);
   if (sRandomize) {
-    //mGenbod->Randomize();
+    //mCALM->Randomize();
     mEvent->Randomize();
   }
   FindPreviousEventFiles();
@@ -83,7 +83,7 @@ EventGenerator::~EventGenerator()
     AddLogEntry(tBuff);
   }
   
-  delete mGenbod;
+  delete mCALM;
   delete mEvent;
 }
 

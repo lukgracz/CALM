@@ -41,15 +41,15 @@ extern int	sRandomize;
 using namespace std;
 
 Event::Event()
-   : mPartDB(0), mGenbod(0), mRandom(0), mDistribution(0), mMultMin(10), mMultMax(20), mEnergy(30), mEventType(GLOBAL)
+   : mPartDB(0), mCALM(0), mRandom(0), mDistribution(0), mMultMin(10), mMultMax(20), mEnergy(30), mEventType(GLOBAL)
 {
 	mMultiplicities.clear();
 	Reset();
 }
 
-Event::Event(ParticleDB* aDB, Genbod* aGenbod)
+Event::Event(ParticleDB* aDB, CALM* aCALM)
 : mPartDB(aDB), 
- mGenbod(aGenbod), mDistribution(0), mMultMin(10), mMultMax(20), mEnergy(30)
+ mCALM(aCALM), mDistribution(0), mMultMin(10), mMultMax(20), mEnergy(30)
 { 
 	mRandom = new TRandom2();
 #ifdef _ROOT_4_
@@ -110,7 +110,7 @@ void Event::GeneratePrimordials(int aSeed)
 	//GenerateMultiplicities();
 	do
 	  {
-	    control = mGenbod->GenerateParticles(mPartDB, mMultMin, mMultMax, mEnergy, &mParticles, mEventType);
+	    control = mCALM->GenerateParticles(mPartDB, mMultMin, mMultMax, mEnergy, &mParticles, mEventType);
 	  }
 	while( control == 99 );
 		
@@ -177,7 +177,7 @@ void Event::ReadParameters()
 			mDistribution = 1;
 		tMultMin	= sMainConfig->GetParameter("MultiplicityMin");
 		tMultMax	= sMainConfig->GetParameter("MultiplicityMax");
-		tEnergy	= sMainConfig->GetParameter("GenbodEnergy");
+		tEnergy	= sMainConfig->GetParameter("CALMEnergy");
 		tEventType	= sMainConfig->GetParameter("EventType");
 		tConvert<<tMultMin<<' '<<tMultMax<<' '<<tEnergy<<' '<<tEventType;
 		tConvert>>tMultMinInt>>tMultMaxInt>>tEnergyDouble>>tEventTypeEnum;

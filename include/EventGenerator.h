@@ -52,7 +52,7 @@ class EventGenerator {
     void SaveAsText();
 
     ParticleDB*	mDB;
-    Genbod*	mGenbod;
+    CALM*	mCALM;
     Event*	mEvent;
     TTree*	mParameterTree;
     TTree*	mEventTree;

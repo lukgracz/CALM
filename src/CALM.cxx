@@ -1,6 +1,6 @@
-#include "Genbod.h"
+#include "CALM.h"
 
-Genbod::Genbod(): mRandom(0), mNames(0), mNmean(0)
+CALM::CALM(): mRandom(0), mNames(0), mNmean(0)
 {
   mRandom = new TRandom2(0);
   mNpart = 4; //particle types (pions, kaons, protons, lambdas)
@@ -35,12 +35,12 @@ Genbod::Genbod(): mRandom(0), mNames(0), mNmean(0)
   for(int i=0;i<3;i++)
     mXYZ[i] = XYZ[i];
 }
-Genbod::~Genbod()
+CALM::~CALM()
 {
   delete mRandom;
 }
 
-int Genbod::GenerateParticles(ParticleDB* aPartDB, int aMultBinMin, int aMultBinMax, double aEnergy, list<Particle>* aParticles, eEventType aEventType)
+int CALM::GenerateParticles(ParticleDB* aPartDB, int aMultBinMin, int aMultBinMax, double aEnergy, list<Particle>* aParticles, eEventType aEventType)
 {
   int Nrand[mNpart]; // number of particles generated (for each kind) - from Poisson distribution
   int Npart[mNpart][aMultBinMax]; // particle to be generated

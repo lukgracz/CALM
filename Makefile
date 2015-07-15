@@ -48,7 +48,7 @@ F_BASH      = $(DIR_MAIN)*.sh
 # file lists
 # CALM
 BIN_EVENTS  = calm_events
-HSRC_EVENTS = Parser.cxx Configurator.cxx ParticleDB.cxx ParticleType.cxx DecayTable.cxx DecayChannel.cxx EventGenerator.cxx Event.cxx Particle.cxx ParticleCoor.cxx ParticleDecayer.cxx Crc32.cxx Vector3D.cxx Genbod.cxx
+HSRC_EVENTS = Parser.cxx Configurator.cxx ParticleDB.cxx ParticleType.cxx DecayTable.cxx DecayChannel.cxx EventGenerator.cxx Event.cxx Particle.cxx ParticleCoor.cxx ParticleDecayer.cxx Crc32.cxx Vector3D.cxx CALM.cxx
 SRC_EVENTS  = $(HSRC_EVENTS:%=$(DIR_CXX)%) $(BIN_EVENTS:%=$(DIR_CXX)%.cxx)
 OBJ_EVENTS  = $(SRC_EVENTS:$(DIR_CXX)%.cxx=$(DIR_OBJ)%.o)
 
@@ -104,6 +104,7 @@ package: $(F_INCLUDE) $(F_SOURCE) $(F_MACRO) $(F_FOMODEL) $(F_SHARE) $(F_DOXYGEN
 clean:
 	rm -rf $(DIR_OBJ)
 	rm -f $(DIR_OBJ)$(BIN_EVENTS) $(DIR_MAIN)$(BIN_EVENTS)
+	rm -rf *.log
 	echo "*.o and binary files removed."
 
 help:

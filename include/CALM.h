@@ -1,5 +1,6 @@
-#ifndef _GENBOD_H_
-#define _GENBOD_H_
+#ifndef _CALM_H_
+#define _CALM_H_
+
 #include <iostream>
 #include <vector>
 #include <list>
@@ -17,10 +18,10 @@ using namespace std;
 
 enum eEventType {GLOBAL, MINIJETS_GLOBAL, MINIJETS_LOCAL};
 
-class Genbod {
+class CALM {
 	public:
-		Genbod();
-		~Genbod();
+		CALM();
+		~CALM();
 		int   GenerateParticles(ParticleDB* aPartDB,int aMultBinMin, int aMultBinMax, double aEnergy, std::list<Particle>* aParticles, eEventType aEventType = GLOBAL);
 		void   SetMultiplicities(ParticleDB* aDB,int aMultBinMin, int aMultBinMax);
 		void   Randomize();
